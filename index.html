@@ -2,134 +2,115 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>rtxncs2 APT Repository - Apps</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>rtxncs Apps - Downloads</title>
+
 <style>
     body {
+        font-family: "Segoe UI", Arial, sans-serif;
         margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: #f5f6fa;
+        padding: 0;
+        background: linear-gradient(135deg, #f0f4ff, #e8faff);
         color: #333;
     }
-    .header {
-        background: #24292e;
-        color: white;
-        padding: 20px;
+
+    header {
+        background: #002855;
+        padding: 25px;
         text-align: center;
-        font-size: 26px;
+        color: white;
+        font-size: 28px;
         font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+
     .container {
         width: 90%;
         max-width: 900px;
         margin: 40px auto;
     }
+
     .app-card {
         background: white;
-        padding: 20px;
+        padding: 25px;
         margin-bottom: 25px;
-        border-radius: 10px;
-        box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
+        border-radius: 16px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
+    .app-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
     .app-title {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: bold;
         margin-bottom: 10px;
+        color: #002855;
     }
-    .desc {
-        font-size: 16px;
-        margin-bottom: 20px;
-    }
-    .install-box {
-        background: #eee;
-        padding: 10px;
-        border-radius: 6px;
-        font-family: monospace;
-        font-size: 14px;
-        white-space: pre-wrap;
-        margin-bottom: 15px;
-    }
-    .btn {
-        background: #0070f3;
+
+    .download-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin-top: 12px;
+        background: #0078ff;
         color: white;
-        padding: 10px 18px;
-        border-radius: 6px;
         text-decoration: none;
-        font-weight: bold;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: background 0.2s ease;
     }
-    .footer {
+
+    .download-btn:hover {
+        background: #005fcc;
+    }
+
+    footer {
         text-align: center;
         padding: 20px;
+        margin-top: 40px;
         font-size: 14px;
-        color: #777;
+        color: #555;
     }
 </style>
 </head>
+
 <body>
 
-<div class="header">rtxncs2 APT Repository</div>
+<header>rtxncs — App Downloads</header>
 
 <div class="container">
 
-    <!-- Finance Tracker -->
     <div class="app-card">
         <div class="app-title">Finance Tracker</div>
-        <div class="desc">A simple, lightweight finance tracking application for Linux.</div>
-
-        <div class="install-box">
-echo "Adding rtxncs2 APT Repository..."
-echo "deb [trusted=yes] https://rtxncs2.github.io/apt/ ./" | sudo tee /etc/apt/sources.list.d/rtxncs2.list >/dev/null
-
-echo "Updating APT..."
-sudo apt update
-
-sudo apt install finance-tracker
-        </div>
-
-        <a class="btn" href="https://rtxncs2.github.io/apt/finance-tracker_1.0.0_amd64.deb">Download .deb</a>
+        <p>A simple and clean financial management tool to track expenses and income.</p>
+        <a class="download-btn" href="https://rtxncs2.github.io/apt/finance-tracker_1.0.0_amd64.deb">Download .deb</a>
     </div>
 
-    <!-- Screen Recorder -->
     <div class="app-card">
         <div class="app-title">Screen Recorder</div>
-        <div class="desc">Record your desktop screen instantly with this lightweight tool.</div>
-
-        <div class="install-box">
-echo "Adding rtxncs2 APT Repository..."
-echo "deb [trusted=yes] https://rtxncs2.github.io/apt/ ./" | sudo tee /etc/apt/sources.list.d/rtxncs2.list >/dev/null
-
-echo "Updating APT..."
-sudo apt update
-
-sudo apt install screen-recorder
-        </div>
-
-        <a class="btn" href="https://rtxncs2.github.io/apt/screen-recorder_1.0.0_amd64.deb">Download .deb</a>
+        <p>Record your Linux desktop with high performance and export videos easily.</p>
+        <a class="download-btn" href="https://rtxncs2.github.io/apt/screen-recorder_1.0.0_amd64.deb">Download .deb</a>
     </div>
 
-    <!-- MyPlayer -->
     <div class="app-card">
-        <div class="app-title">MyPlayer</div>
-        <div class="desc">A clean and minimal media player for audio/video files.</div>
+        <div class="app-title">Simple Media Player</div>
+        <p>A lightweight and fast audio/video player for Debian systems.</p>
+        <a class="download-btn" href="https://rtxncs2.github.io/apt/myplayer_1.0.0_amd64.deb">Download .deb</a>
+    </div>
 
-        <div class="install-box">
-echo "Adding rtxncs2 APT Repository..."
-echo "deb [trusted=yes] https://rtxncs2.github.io/apt/ ./" | sudo tee /etc/apt/sources.list.d/rtxncs2.list >/dev/null
-
-echo "Updating APT..."
-sudo apt update
-
-sudo apt install myplayer
-        </div>
-
-        <a class="btn" href="https://rtxncs2.github.io/apt/myplayer_1.0.0_amd64.deb">Download .deb</a>
+    <div class="app-card">
+        <div class="app-title">POS Billing - WarehousePro ERP</div>
+        <p>Full-featured POS & ERP system for billing, stock, and warehouse management.</p>
+        <a class="download-btn" href="https://rtxncs2.github.io/apt/WarehouseProERP-3.0-x86_64.AppImage">Download AppImage</a>
     </div>
 
 </div>
 
-<div class="footer">
-    © 2026 rtxncs2 — All rights reserved.
-</div>
+<footer>© 2026 rtxncs | Open-source & Free Downloads</footer>
 
 </body>
 </html>
