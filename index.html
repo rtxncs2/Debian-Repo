@@ -1,141 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Downloads</title>
+    <meta charset="UTF-8">
+    <title>RTX NCS Apps</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 40px auto;
+            background:#f5f5f5;
+        }
 
-<style>
-    body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: linear-gradient(135deg, #f0f4ff, #e8faff);
-        color: #333;
-    }
+        .app{
+            background:white;
+            margin:10px 0;
+            padding:15px;
+            border-radius:8px;
+        }
 
-    header {
-        background: #002855;
-        padding: 25px;
-        text-align: center;
-        color: white;
-        font-size: 28px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-
-    .container {
-        width: 90%;
-        max-width: 900px;
-        margin: 40px auto;
-    }
-
-    .app-card {
-        background: white;
-        padding: 25px;
-        margin-bottom: 25px;
-        border-radius: 16px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .app-card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
-
-    .app-title {
-        font-size: 22px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #002855;
-    }
-
-    .download-btn {
-        display: inline-block;
-        padding: 12px 20px;
-        margin-top: 12px;
-        background: #0078ff;
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 10px;
-        transition: background 0.2s ease;
-    }
-
-    .download-btn:hover {
-        background: #005fcc;
-    }
-
-    footer {
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-        font-size: 14px;
-        color: #555;
-    }
-</style>
+        a{
+            text-decoration:none;
+            font-weight:bold;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>App Downloads</header> 
+<h1>RTX NCS Apps</h1>
 
-
-<div class="container">
-
-
-
-     <div class="app-card">
-        <div class="app-title">Screenshot From Video</div>
-        <a class="download-btn" href="https://github.com/rtxncs2/apt/raw/refs/heads/main/video-extractor-1.0.0.AppImage">Download Appimage</a>
-    </div>
-
-
-
-    
-
-    <div class="app-card">
-        <div class="app-title">Simple Notes App</div>
-        <a class="download-btn" href="https://https://github.com/rtxncs2/apt/raw/refs/heads/main/Notes-1.0.0.AppImage">Download Appimage</a>
-    </div>
-    
-<div class="app-card">
-        <div class="app-title">Green Noise App</div>
-        <a class="download-btn" href="https://github.com/rtxncs2/apt/raw/refs/heads/main/GreenNoise-1.0.0.AppImage">Download Appimage</a>
-    </div>
-    
-
- <div class="app-card">
-        <div class="app-title">Shopping List Maker</div>
-        <a class="download-btn" href="https://github.com/rtxncs2/apt/releases/download/appimage/ShoppingList-1.0.0.AppImage">Download Appimage</a>
-    </div>
-    
-
-    <div class="app-card">
-        <div class="app-title">Finance Tracker</div>
-        <a class="download-btn" href="https://rtxncs2.github.io/apt/finance-tracker_1.0.0_amd64.deb">Download .deb</a>
-    </div>
-
-    <div class="app-card">
-        <div class="app-title">Screen Recorder</div>
-        <a class="download-btn" href="https://rtxncs2.github.io/apt/screen-recorder_1.0.0_amd64.deb">Download .deb</a>
-    </div>
-
-    <div class="app-card">
-        <div class="app-title">Simple Media Player</div>
-        <a class="download-btn" href="https://rtxncs2.github.io/apt/myplayer_1.0.0_amd64.deb">Download .deb</a>
-    </div>
-
-    <div class="app-card">
-        <div class="app-title">POS Billing - WarehousePro ERP</div>
-        <a class="download-btn" href="https://rtxncs2.github.io/apt/WarehouseProERP-3.0-x86_64.AppImage">Download AppImage</a>
-    </div>
-
+<div class="app">
+    <h3>GreenNoise</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/GreenNoise-1.0.0.AppImage">Download</a>
 </div>
 
-<footer>© 2026 rtxncs | Open-source & Free Downloads</footer>
+<div class="app">
+    <h3>JerryTimer</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/JerryTimer.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Notes</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/Notes-1.0.0.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Screenshot Tool</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ScreenshotTool-x86_64.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Shopping List</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ShoppingList-1.0.0.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Warehouse Pro ERP</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/WarehouseProERP-3.0-x86_64.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Video Extractor</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/video-extractor-1.0.0.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Video Trimmer</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/videotrimmer-1.0.0.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>WebM2MP4</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/webm2mp4-1.0.0.AppImage">Download</a>
+</div>
+
+<div class="app">
+    <h3>Finance Tracker</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/finance-tracker_1.0.0_amd64.deb">Download</a>
+</div>
+
+<div class="app">
+    <h3>MyPlayer</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/myplayer_1.0.0_amd64.deb">Download</a>
+</div>
+
+<div class="app">
+    <h3>Screen Recorder</h3>
+    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/screen-recorder_1.0.0_amd64.deb">Download</a>
+</div>
 
 </body>
 </html>
