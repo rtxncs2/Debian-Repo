@@ -1,91 +1,248 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Apps</title>
     <style>
-        body{
-            font-family: Arial, sans-serif;
-            max-width: 700px;
-            margin: 40px auto;
-            background:#f5f5f5;
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-appimage: #38bdf8;
+            --accent-deb: #ec4899;
+            --btn-hover: #ffffff;
         }
 
-        .app{
-            background:white;
-            margin:10px 0;
-            padding:15px;
-            border-radius:8px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        a{
-            text-decoration:none;
-            font-weight:bold;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Responsive Grid Setup */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Card Styling */
+        .app-card {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .app-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Badge Format Tags */
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge.appimage {
+            background-color: rgba(56, 189, 248, 0.15);
+            color: var(--accent-appimage);
+        }
+
+        .badge.deb {
+            background-color: rgba(236, 72, 153, 0.15);
+            color: var(--accent-deb);
+        }
+
+        /* Action Buttons */
+        .download-btn {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .appimage-btn {
+            border: 1px solid var(--accent-appimage);
+            color: var(--accent-appimage);
+        }
+
+        .appimage-btn:hover {
+            background-color: var(--accent-appimage);
+            color: var(--bg-color);
+        }
+
+        .deb-btn {
+            border: 1px solid var(--accent-deb);
+            color: var(--accent-deb);
+        }
+
+        .deb-btn:hover {
+            background-color: var(--accent-deb);
+            color: var(--bg-color);
         }
     </style>
 </head>
 <body>
 
-<h1>My Apps</h1>
+<div class="container">
+    <header>
+        <h1>My Apps</h1>
+        <p>Curated Linux applications and utilities</p>
+    </header>
 
-<div class="app">
-    <h3>GreenNoise</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/GreenNoise-1.0.0.AppImage">Download</a>
-</div>
+    <main class="apps-grid">
+        <div class="app-card">
+            <div class="app-info">
+                <h3>GreenNoise</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/GreenNoise-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Timer</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/JerryTimer.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Timer</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/JerryTimer.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Notes</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/Notes-1.0.0.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Notes</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/Notes-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Screenshot Tool</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ScreenshotTool-x86_64.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Screenshot Tool</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ScreenshotTool-x86_64.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Shopping List</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ShoppingList-1.0.0.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Shopping List</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ShoppingList-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Warehouse Pro ERP</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/WarehouseProERP-3.0-x86_64.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Warehouse Pro ERP</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/WarehouseProERP-3.0-x86_64.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Video Extractor</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/video-extractor-1.0.0.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Video Extractor</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/video-extractor-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Video Trimmer</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/videotrimmer-1.0.0.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Video Trimmer</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/videotrimmer-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>WebM2MP4</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/webm2mp4-1.0.0.AppImage">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>WebM2MP4</h3>
+                <span class="badge appimage">AppImage</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/webm2mp4-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Finance Tracker</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/finance-tracker_1.0.0_amd64.deb">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Finance Tracker</h3>
+                <span class="badge deb">DEB Package</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/finance-tracker_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>MyPlayer</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/myplayer_1.0.0_amd64.deb">Download</a>
-</div>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>MyPlayer</h3>
+                <span class="badge deb">DEB Package</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/myplayer_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
+        </div>
 
-<div class="app">
-    <h3>Screen Recorder</h3>
-    <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/screen-recorder_1.0.0_amd64.deb">Download</a>
+        <div class="app-card">
+            <div class="app-info">
+                <h3>Screen Recorder</h3>
+                <span class="badge deb">DEB Package</span>
+            </div>
+            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/screen-recorder_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
+        </div>
+    </main>
 </div>
 
 </body>
