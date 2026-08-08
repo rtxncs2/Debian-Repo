@@ -1,249 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Apps</title>
-    <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-appimage: #38bdf8;
-            --accent-deb: #ec4899;
-            --btn-hover: #ffffff;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Software Repository & App Downloads</title>
+  <style>
+    :root {
+      --bg-color: #0f172a;
+      --card-bg: #1e293b;
+      --card-hover: #334155;
+      --accent: #38bdf8;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --tag-appimage: #818cf8;
+      --tag-deb: #f43f5e;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.5;
-            padding: 2rem 1rem;
-        }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
 
-        header h1 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #38bdf8, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+    header h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
 
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
+    header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
 
-        /* Responsive Grid Setup */
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
+    .controls {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
 
-        /* Card Styling */
-        .app-card {
-            background-color: var(--card-bg);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
 
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
+    .filter-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
 
-        .app-info h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: 600;
+    }
 
-        /* Badge Format Tags */
-        .badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
+    .file-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
 
-        .badge.appimage {
-            background-color: rgba(56, 189, 248, 0.15);
-            color: var(--accent-appimage);
-        }
+    .file-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: transform 0.2s, background-color 0.2s;
+    }
 
-        .badge.deb {
-            background-color: rgba(236, 72, 153, 0.15);
-            color: var(--accent-deb);
-        }
+    .file-card:hover {
+      background-color: var(--card-hover);
+    }
 
-        /* Action Buttons */
-        .download-btn {
-            display: block;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 0.75rem;
-            border-radius: 8px;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
+    @media (min-width: 640px) {
+      .file-card {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
 
-        .appimage-btn {
-            border: 1px solid var(--accent-appimage);
-            color: var(--accent-appimage);
-        }
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      overflow: hidden;
+    }
 
-        .appimage-btn:hover {
-            background-color: var(--accent-appimage);
-            color: var(--bg-color);
-        }
+    .badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      white-space: nowrap;
+    }
 
-        .deb-btn {
-            border: 1px solid var(--accent-deb);
-            color: var(--accent-deb);
-        }
+    .badge-appimage { background-color: rgba(129, 140, 248, 0.2); color: var(--tag-appimage); border: 1px solid var(--tag-appimage); }
+    .badge-deb { background-color: rgba(244, 63, 94, 0.2); color: var(--tag-deb); border: 1px solid var(--tag-deb); }
 
-        .deb-btn:hover {
-            background-color: var(--accent-deb);
-            color: var(--bg-color);
-        }
-    </style>
+    .file-details {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .filename {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-main);
+      word-break: break-all;
+    }
+
+    .file-actions {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      cursor: pointer;
+      border: none;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #0f172a;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem;
+      color: var(--text-muted);
+    }
+  </style>
 </head>
 <body>
 
 <div class="container">
-    <header>
-        <h1>My Apps</h1>
-        <p>Curated Linux applications and utilities</p>
-    </header>
+  <header>
+    <h1>Package & App Repository</h1>
+    <p>Direct download links with default filenames</p>
+  </header>
 
-    <main class="apps-grid">
-        <div class="app-card">
-            <div class="app-info">
-                <h3>GreenNoise</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/GreenNoise-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
+  <div class="controls">
+    <div class="filters">
+      <button class="filter-btn active" onclick="filterType('all')">All</button>
+      <button class="filter-btn" onclick="filterType('appimage')">AppImage</button>
+      <button class="filter-btn" onclick="filterType('deb')">DEB</button>
+    </div>
+  </div>
 
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Timer</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/JerryTimer.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Notes</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/Notes-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Screenshot Tool</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ScreenshotTool-x86_64.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Shopping List</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/ShoppingList-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Warehouse Pro ERP</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/WarehouseProERP-3.0-x86_64.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Video Extractor</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/video-extractor-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Video Trimmer</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/videotrimmer-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>WebM2MP4</h3>
-                <span class="badge appimage">AppImage</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/webm2mp4-1.0.0.AppImage" class="download-btn appimage-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Finance Tracker</h3>
-                <span class="badge deb">DEB Package</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/finance-tracker_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>MyPlayer</h3>
-                <span class="badge deb">DEB Package</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/myplayer_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-info">
-                <h3>Screen Recorder</h3>
-                <span class="badge deb">DEB Package</span>
-            </div>
-            <a href="https://media.githubusercontent.com/media/rtxncs2/apt/main/screen-recorder_1.0.0_amd64.deb" class="download-btn deb-btn">Download</a>
-        </div>
-    </main>
+  <div id="fileList" class="file-list"></div>
 </div>
+
+<script>
+  const files = [
+    { name: "Budget Planner-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/Budget%20Planner-1.0.0.AppImage" },
+    { name: "ExpenseSplitter-x86_64.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/ExpenseSplitter-x86_64.AppImage" },
+    { name: "IPTVPlayer-x86_64.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/IPTVPlayer-x86_64.AppImage" },
+    { name: "finance-tracker_1.0.0_amd64.deb", type: "deb", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/finance-tracker_1.0.0_amd64.deb" },
+    { name: "GreenNoise-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/GreenNoise-1.0.0.AppImage" },
+    { name: "JerryTimer.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/JerryTimer.AppImage" },
+    { name: "myplayer_1.0.0_amd64.deb", type: "deb", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/myplayer_1.0.0_amd64.deb" },
+    { name: "Notes-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/Notes-1.0.0.AppImage" },
+    { name: "screen-recorder_1.0.0_amd64.deb", type: "deb", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/screen-recorder_1.0.0_amd64.deb" },
+    { name: "ScreenshotTool-x86_64.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/ScreenshotTool-x86_64.AppImage" },
+    { name: "ShoppingList-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/ShoppingList-1.0.0.AppImage" },
+    { name: "video-extractor-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/video-extractor-1.0.0.AppImage" },
+    { name: "videotrimmer-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/videotrimmer-1.0.0.AppImage" },
+    { name: "WarehouseProERP-3.0-x86_64.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/WarehouseProERP-3.0-x86_64.AppImage" },
+    { name: "webm2mp4-1.0.0.AppImage", type: "appimage", url: "https://github.com/rtxncs2/apt/raw/refs/heads/main/webm2mp4-1.0.0.AppImage" }
+  ];
+
+  let currentFilter = 'all';
+
+  function render() {
+    const listEl = document.getElementById('fileList');
+    listEl.innerHTML = '';
+
+    const filtered = files.filter(f => currentFilter === 'all' || f.type === currentFilter);
+
+    if (filtered.length === 0) {
+      listEl.innerHTML = '<div class="empty-state">No files found for this category.</div>';
+      return;
+    }
+
+    filtered.forEach(file => {
+      const card = document.createElement('div');
+      card.className = 'file-card';
+
+      const typeBadgeClass = `badge-${file.type}`;
+      const typeLabel = file.type === 'appimage' ? 'AppImage' : 'DEB Package';
+
+      card.innerHTML = `
+        <div class="file-info">
+          <span class="badge ${typeBadgeClass}">${typeLabel}</span>
+          <div class="file-details">
+            <span class="filename">${file.name}</span>
+          </div>
+        </div>
+        <div class="file-actions">
+          <button class="btn btn-secondary" onclick="copyUrl('${file.url}', this)">Copy URL</button>
+          <a class="btn btn-primary" href="${file.url}" download="${file.name}">Download</a>
+        </div>
+      `;
+      listEl.appendChild(card);
+    });
+  }
+
+  function filterType(type) {
+    currentFilter = type;
+    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    render();
+  }
+
+  function copyUrl(url, btn) {
+    navigator.clipboard.writeText(url).then(() => {
+      const origText = btn.innerText;
+      btn.innerText = 'Copied!';
+      setTimeout(() => btn.innerText = origText, 1500);
+    });
+  }
+
+  render();
+</script>
 
 </body>
 </html>
