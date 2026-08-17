@@ -2,11 +2,58 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>App Downloads</title>
+
+  <style>
+    /* Desktop */
+    body {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    a {
+      overflow-wrap: anywhere;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      body {
+        font-size: 19px;
+        line-height: 1.7;
+        margin: 16px;
+      }
+
+      h1 {
+        font-size: 28px;
+        line-height: 1.2;
+      }
+
+      ul {
+        padding-left: 28px;
+      }
+
+      li {
+        margin-bottom: 12px;
+      }
+
+      a {
+        font-size: 19px;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <h1>App Downloads</h1>
-
 
   <ul id="fileList">
     <li><a href="https://github.com/rtxncs2/apt/raw/refs/heads/main/Budget%20Planner-1.0.0.AppImage" download="Budget Planner-1.0.0.AppImage">Budget Planner-1.0.0.AppImage</a> (appimage)</li>
@@ -27,7 +74,23 @@
   </ul>
 
   <script>
-    const files = [{'name': 'Budget Planner-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/Budget%20Planner-1.0.0.AppImage'}, {'name': 'ExpenseSplitter-x86_64.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/ExpenseSplitter-x86_64.AppImage'}, {'name': 'IPTVPlayer-x86_64.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/IPTVPlayer-x86_64.AppImage'}, {'name': 'finance-tracker_1.0.0_amd64.deb', 'type': 'deb', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/finance-tracker_1.0.0_amd64.deb'}, {'name': 'GreenNoise-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/GreenNoise-1.0.0.AppImage'}, {'name': 'Timer.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/JerryTimer.AppImage'}, {'name': 'myplayer_1.0.0_amd64.deb', 'type': 'deb', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/myplayer_1.0.0_amd64.deb'}, {'name': 'Notes-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/Notes-1.0.0.AppImage'}, {'name': 'screen-recorder_1.0.0_amd64.deb', 'type': 'deb', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/screen-recorder_1.0.0_amd64.deb'}, {'name': 'ScreenshotTool-x86_64.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/ScreenshotTool-x86_64.AppImage'}, {'name': 'ShoppingList-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/ShoppingList-1.0.0.AppImage'}, {'name': 'video-extractor-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/video-extractor-1.0.0.AppImage'}, {'name': 'videotrimmer-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/videotrimmer-1.0.0.AppImage'}, {'name': 'WarehouseProERP-3.0-x86_64.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/WarehouseProERP-3.0-x86_64.AppImage'}, {'name': 'webm2mp4-1.0.0.AppImage', 'type': 'appimage', 'url': 'https://github.com/rtxncs2/apt/raw/refs/heads/main/webm2mp4-1.0.0.AppImage'}];
+    const files = [
+      {'name':'Budget Planner-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/Budget%20Planner-1.0.0.AppImage'},
+      {'name':'ExpenseSplitter-x86_64.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/ExpenseSplitter-x86_64.AppImage'},
+      {'name':'IPTVPlayer-x86_64.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/IPTVPlayer-x86_64.AppImage'},
+      {'name':'finance-tracker_1.0.0_amd64.deb','type':'deb','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/finance-tracker_1.0.0_amd64.deb'},
+      {'name':'GreenNoise-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/GreenNoise-1.0.0.AppImage'},
+      {'name':'Timer.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/JerryTimer.AppImage'},
+      {'name':'myplayer_1.0.0_amd64.deb','type':'deb','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/myplayer_1.0.0_amd64.deb'},
+      {'name':'Notes-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/Notes-1.0.0.AppImage'},
+      {'name':'screen-recorder_1.0.0_amd64.deb','type':'deb','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/screen-recorder_1.0.0_amd64.deb'},
+      {'name':'ScreenshotTool-x86_64.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/ScreenshotTool-x86_64.AppImage'},
+      {'name':'ShoppingList-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/ShoppingList-1.0.0.AppImage'},
+      {'name':'video-extractor-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/video-extractor-1.0.0.AppImage'},
+      {'name':'videotrimmer-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/videotrimmer-1.0.0.AppImage'},
+      {'name':'WarehouseProERP-3.0-x86_64.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/WarehouseProERP-3.0-x86_64.AppImage'},
+      {'name':'webm2mp4-1.0.0.AppImage','type':'appimage','url':'https://github.com/rtxncs2/apt/raw/refs/heads/main/webm2mp4-1.0.0.AppImage'}
+    ];
 
     function filterType(type) {
       document.querySelectorAll('#fileList li').forEach((item, i) => {
